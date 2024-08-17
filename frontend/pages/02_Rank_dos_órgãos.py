@@ -5,7 +5,7 @@ import json
 import unidecode
 import os
 
-st.set_page_config(page_title="Gastos de Dispensa por Órgão", layout='wide')
+st.set_page_config(page_title="Gastos de Dispensa por Órgão", layout='wide', theme="dark")
 
 @st.cache_data
 def load_data1():
