@@ -3,7 +3,7 @@ import pandas as pd
 import altair as alt
 import plotly_express as px
 import os
-st.set_page_config(page_title="Queridinhas da Licitação", layout='wide', theme="dark")
+st.set_page_config(page_title="Queridinhas da Licitação", layout='wide', theme={"base": "dark"})
 
 tipos_de_dados = {
     "Código": str,
