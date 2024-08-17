@@ -1,6 +1,17 @@
 import streamlit as st
 import requests
 import re
+import pandas as pd
+
+
+@st.cache_data
+def carregar_dados1():
+    tabela = pd.read_json("contratos_OFICIAL.json")
+    tabela = tabela.drop("Empresas Contratadas", axis=1)
+    return tabela
+
+data = carregar_dados1()
+st.write(data.iloc[0])
 
 # Função para validar email
 def is_valid_email(email):

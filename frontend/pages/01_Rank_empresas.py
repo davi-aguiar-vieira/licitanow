@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import altair as alt
 import plotly_express as px
-
+import os
 st.set_page_config(page_title="Queridinhas da Licitação", layout='wide')
 
 tipos_de_dados = {
@@ -12,6 +12,8 @@ tipos_de_dados = {
     "Valor Recebido": float,
     "Descrição": str
 }
+
+#dados_folder = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../frontend'))
 
 @st.cache_data
 def carregar_dados():
