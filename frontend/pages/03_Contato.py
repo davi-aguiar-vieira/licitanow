@@ -2,16 +2,27 @@ import streamlit as st
 import requests
 import re
 import pandas as pd
-
+import os
 
 @st.cache_data
 def carregar_dados1():
-    tabela = pd.read_json("contratos_OFICIAL.json")
+    # Monta o caminho completo para o arquivo JSON
+    caminho_arquivo = os.path.join(os.path.dirname(__file__), '..', 'contratos_OFICIAL.json')
+    
+    # Carrega o arquivo JSON usando pandas
+    tabela = pd.read_json(caminho_arquivo)
+    
+    # Remove a coluna 'Empresas Contratadas'
     tabela = tabela.drop("Empresas Contratadas", axis=1)
+    
     return tabela
 
+# Chama a função para carregar os dados
 data = carregar_dados1()
+
+# Exibe a primeira linha dos dados
 st.write(data.iloc[0])
+
 
 # Função para validar email
 def is_valid_email(email):
